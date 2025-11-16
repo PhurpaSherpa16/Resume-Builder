@@ -1,10 +1,11 @@
 import prisma from '@/lib/prisma'
-import stripe from '@/lib/stripe'
+import Stripe from 'stripe'
 import { auth } from '@clerk/nextjs/server'
 import { formatDate } from 'date-fns'
 import { Metadata } from 'next'
 import GetSubscriptionButton from './GetSubscriptionButton' 
 import ManageSubscriptionButton from './ManageSubscriptionButton'
+import stripe from '@/lib/stripe'
 
 
 export const metadata : Metadata={
