@@ -1,26 +1,109 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer base{
+  :root {
+    --borderColor: rgba(178, 178, 178, 0.459);
+    --buttonIcon: black;
+    --textColor: white;
+    --secondaryTextColor: #6d6d6d;
+  }
+  
+  .dark {
+    --borderColor: rgba(128, 128, 128, 0.388);
+    --buttonIcon: rgba(153, 153, 153, 0.428);
+    --textColor: rgb(255, 255, 255);
+    --secondaryTextColor: rgb(147, 147, 147);
+  }
+  
+  body{
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+}
+
+@layer utilities{
+
+h1 {
+  @apply text-4xl font-bold leading-tight;
+}
+
+h2 {
+  @apply text-3xl font-semibold leading-snug;
+}
+
+h3 {
+  @apply text-2xl font-semibold leading-snug;
+}
+
+h4 {
+  @apply text-xl font-medium;
+}
+
+h5 {
+  @apply text-lg font-medium;
+}
+
+h6 {
+  @apply text-base font-medium;
+}
+
+p{
+  @apply 
+  text-(--muted-foreground)
+}
+
+  .borderColor{
+    @apply
+    border-(--borderColor)
+  }
+
+  .container{
+    @apply
+    container mx-auto px-4 xl:px-0
+  }
+
+  .previewDiv h1{
+    @apply
+    text-2xl font-semibold uppercase tracking-wide
+  }
+  .previewDiv h2{
+    @apply
+    text-xl font-semibold uppercase tracking-tight
+    pb-1 border-b-3 w-fit pr-16
+  }
+  .previewDiv p{
+    @apply
+    text-[#737373]
+  }
+  .previewDiv .jobtitle{
+    @apply
+    text-lg font-semibold
+  }
+
+}
+
+@media print{
+  #resumePreviewDiv{
+    zoom: 1 !important;
+    padding: 0;
+  }
+
+}
+
+ #resumePreviewDiv{
+    font-family: Inter;
+  }
+@page{
+  size: A4;
+  margin: 0.6cm;
+  padding: 1cm;
+}
+
+
